@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>AngularJS First Application</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<h1>AngularJS First Application</h1>
+	<h2>Seleccione el precio</h2>	
+	<ul> 
+	
+	<p>Precio:<input type="number" ng-model="my_price" />
+	
+	
+	 
+	<select name="money" ng-model="my_money">
+		<option>Pes</option>
+		<option>Usd</option>
+		<option>Uk</option>
+	</select>
+	</p>
+	<li>Price {{ my_price == '0' ?   (my_price | currency: "$") : "nada"	}}<strong> {{ my_money | uppercase }} </strong>	</li>
+		 
+	</ul>
+	<script type="text/javascript"src="../assets/angular.min.js"></script>
+</body>
+</html>
