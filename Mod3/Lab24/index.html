@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="initial_spi">
+<head>
+	<title>Lab24</title>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="../assets/angular.min.js"></script>
+	<script type="text/javascript" src="../assets/angular-route.min.js"></script>
+</head>
+<body>
+   <h1>Visita el Zoo</h1>
+
+    <div ng-include src=" 'includes/header.html' "></div>
+    <div ng-include src=" 'includes/menu.html' "></div>
+
+    <div ng-view></div>
+
+    <script>
+        angular.module('initial_spi', ['ngRoute'])
+               .config(['$routeProvider', function($routeProvider,$routeParams){
+
+            /*
+             * `when()` cuantas veces sea necesario
+             * `otherwise()` una sola vez "OJO"
+            */
+            $routeProvider 
+            .when('/hello', {
+                templateUrl : "hello.html"
+            })
+				
+            .when('/message/one/', 
+                {
+                    templateUrl: "message1/doc/1.html" 
+                })
+            
+            .otherwise({
+                redirectTo: '/',
+                templateUrl: 'otherwise.html'
+            });
+
+			/*
+			 $routeProvider
+            .when('/', {templateUrl: '/login', controller: 'AppCtrl'})
+            .when('/home', {templateUrl: '/', controller: 'AppCtrl'})
+            .when('/login', {templateUrl: '/login', controller: 'AppCtrl'})
+            .when('/SAMPLE', {templateUrl: '/SAMPLE', controller: 'SAMPLECtrl'})
+            .when('/map', {templateUrl: '/map', controller: 'MapCtrl'})
+            .when('/chat', {templateUrl: '/chat', controller: 'ChatCtrl'})
+            .when('/blog', {templateUrl: '/blog', controller: 'BlogCtrl'})
+            .when('/files', {templateUrl: '/files', controller: 'FilesCtrl'})
+            .when('/tasks', {templateUrl: '/tasks', controller: 'TasksCtrl'})
+            .when('/tasks/new', {templateUrl: '/tasks/new', controller: 'NewTaskCtrl'})
+            .when('/tasks/:id', {templateUrl: '/tasks', controller: 'ViewTaskCtrl'})
+            .when('/tasks/:id/edit', {templateUrl: '/tasks', controller: 'EditTaskCtrl'})
+            .when('/tasks/:id/delete', {templateUrl: '/tasks', controller: 'DeleteTaskCtrl'})
+			.otherwise({redirectTo: '/login'});
+			*/
+        }])
+    </script>
+</body>
+</html>
